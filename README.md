@@ -2,6 +2,10 @@
 The Adobe Font ripper.
 ## [Get It Here](http://codezombie.github.io/TypeRip/)
 
+### Run locally
+
+Run `python3 server.py` from this folder, then open http://127.0.0.1:8765. Python 3 and an internet connection are required. The local server fetches Adobe Fonts pages directly, avoiding the original public proxy. Press Ctrl+C in the terminal to stop it.
+
 ### How to use it
   1. Enter an Adobe Fonts [font family](https://fonts.adobe.com/fonts) or [font collection](https://fonts.adobe.com/collections) URL into the address bar, then press enter.
   2. Browse the available fonts under this family, using the download button to save them to your machine.

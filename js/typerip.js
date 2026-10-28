@@ -1,7 +1,7 @@
 var TypeRip = {
     handleRequest: function(url_, callback_){
         if(!url_.toLowerCase().startsWith("http://") && !url_.toLowerCase().startsWith("https://")){
-            url_ = "http://" + url_;
+            url_ = "https://" + url_;
         }
         if(url_.indexOf("fonts.adobe.com/collections") != -1){
             this.getFontCollection(url_, callback_);
@@ -11,7 +11,7 @@ var TypeRip = {
     },
 
     getFontCollection: function(url_, callback_){
-        axios.get("https://api.allorigins.win/raw?url=" + url_)
+        axios.get((location.hostname === "127.0.0.1" || location.hostname === "localhost" ? "/adobe-page?url=" : "https://api.allorigins.win/raw?url=") + encodeURIComponent(url_), { timeout: 25000 })
         .then(function (response) {
             let fontCollection = {
                 name: "",
@@ -79,7 +79,7 @@ var TypeRip = {
     },
 
     getFontFamily: function(url_, callback_) {
-        axios.get("https://api.allorigins.win/raw?url=" + url_)
+        axios.get((location.hostname === "127.0.0.1" || location.hostname === "localhost" ? "/adobe-page?url=" : "https://api.allorigins.win/raw?url=") + encodeURIComponent(url_), { timeout: 25000 })
         .then(function (response) {
             let fontFamily = {
                 name: "",
